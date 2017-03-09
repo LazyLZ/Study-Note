@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-cmn">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+    <script defer src="../default.js"></script>
+    <link rel="stylesheet" type="text/css" href="../default.css"/>
+</head>
+<body>
+<header>
+    <h1>表单--获取用户输入</h1>
+</header>
+<article>
+    <h1>制作基本表单</h1>
+    <p>
+        制作基本的表单需要三个元素，form，input和button元素。form元素创建表单，input代表用户输入，button有多种用途，主要用来提交数据，当然提交数据也可以有其他办法，不过主要是button元素来完成。这三个元素均有诸多属性，接下来会详细介绍。</p>
+    <p>一个最简单的表单：</p>
+    <form method="post" action="#">
+        <input title="hehe" name="simpleform">
+        <button>提交</button>
+    </form>
+    <p>注意：在form标签中的代码，回车占一个空格符，若代码不换行，input标签和button间无缝隙。</p>
+    <h1>配置表单</h1>
+    <p>form元素最基本的属性是<strong>action</strong>和<strong>method</strong>属性，action属性定义表单数据发送到什么地方，method则定义发送数据的方法。</p>
+    <p><strong>action</strong>属性定义的url如果过是相对URL，则被嫁接到网页的地址如果base元素设定了基准并且action属性填入的是相对地址，那么该值会被嫁接到base设定的基准值。</p>
+    <p><strong>method</strong>属性如果不设置则默认是get方法，不过大多数表单需要post方法。get请求用于安全交互，同一个请求可以发起多次而不会产生额外作用，而post请求则用于不安全交互，提交数据的行为会导致一些状态的改变。一般而言，get应该仅用于只读信息，而post请求用于会改变应用程序状态的各种操作。如果拿不准用哪个，谨慎起见，就用post好了。
+    </p>
+    <p>form元素的<strong>entype</strong>属性指定了浏览器发送数据的编码方式，可用值有三个：</p>
+    <ul>
+        <li><strong>application/x-www-form-urlencoded: </strong>未设置entype属性时的默认方式，将采用URL相同的编码方式，特殊字符会替换成HTML实体，适合各种类型的表单，但不能用来上传文件到服务器
+        </li>
+        <li><strong>multipart/form-data: </strong>用于将文件上传到服务器</li>
+        <li><strong>text/plain: </strong>因浏览器而异,结果难以预料</li>
+    </ul>
+    <p>一般浏览器会有表单元素自动完成功能，其原理是查看input元素的name属性，如果相同，任何表单中都将自动填入。可以用form的<strong>autocomplete</strong>属性来控制是否自动完成，这个属性的默认值都是on，若想关闭自动完成必须手动设置autocomplete属性为off，input也有autocomplete属性，其可以控制单个输入是否自动完成。
+    </p>
+    <p>form元素的<strong>target</strong>属性可以设置表单返回信息的打开方式，其值和a元素的target属性相同，可用值也相同。</p>
+    <p>form元素的<strong>name</strong>属性可以为表单设置一个独一无二的标识符，用来供DOM使用(id属性用来供CSS使用)，但是name属性的值不会提交给服务器，并且表单的name属性不向input元素的name属性那么重要，如果input元素没有name属性，那么浏览器不会发送数据给服务器。
+    </p>
+    <p>label元素可以为表单中的元素提供说明，如果input元素有id值，label元素设置for属性为该id值会将label元素和input元素关联起来，input元素可以置于label元素内，也可以二者独立设置。</p>
+    <p>例：</p>
+    <form action="#" method="post">
+        <label for="labelform">label关联的input：<input name="labelform" id="labelform"></label>
+        <button>提交</button>
+    </form>
+
+    <h1>对表单元素编组</h1>
+    <p>对于复杂的表单，常常需要将一些元素组织到一起，为此可以使用fieldset元素。fieldset元素默认样式是在编组的元素周围加一圈细线边框。。另外，在filedset元素上应用disable属性可以禁用整组输入。</p>
+    <p>例：</p>
+    <form action="#" method="post">
+        <fieldset disabled>
+            <p><label for="complicateform1">复杂表单1，禁用输入：<input name="complicateform1" id="complicateform1"></label></p>
+            <p><label for="complicateform2">复杂表单2，禁用输入：<input name="complicateform2" id="complicateform2"></label></p>
+        </fieldset>
+        <fieldset>
+            <p><label for="complicateform3">复杂表单3：<input name="complicateform3" id="complicateform3"></label>
+                <label for="complicateform4">复杂表单4：<input name="complicateform4" id="complicateform4"></label></p>
+            <p><label for="complicateform5">复杂表单5：<input name="complicateform5" id="complicateform5"></label></p>
+            <button>提交</button>
+        </fieldset>
+    </form>
+
+    <p>
+        上述fieldset元素将内容分组，但为表明分组的意义，可以用在filedset标签中加入legend标签来说明分组依据，legend元素必须是fieldset的第一个子元素。legend元素的内容将会嵌进filedset元素应用的边框的左上方。</p>
+    <form action="#" method="post">
+        <fieldset>
+            <legend>legend1</legend>
+            <p><label for="legendform1">分组显示1：<input name="legendform1" id="legendform1"></label></p>
+            <p><label for="legendform2">分组显示2：<input name="legendform2" id="legendform2"></label></p>
+        </fieldset>
+        <fieldset>
+            <legend>legend2</legend>
+            <p><label for="legendform3">分组显示3：<input name="legendform3" id="legendform3"></label>
+                <label for="legendform4">分组显示4：<input name="legendform4" id="legendform4"></label></p>
+            <p><label for="legendform5">分组显示5：<input name="legendform5" id="legendform5"></label></p>
+            <button>提交</button>
+        </fieldset>
+    </form>
+
+    <h1>定制button元素</h1>
+    <p>button元素有三种用法，通过设置type属性的三个值来实现：</p>
+    <ul>
+        <li><strong>submit: </strong>提交表单，默认操作</li>
+        <li><strong>reset: </strong>重置表单</li>
+        <li><strong>button: </strong>没有具体含义</li>
+    </ul>
+    <p>此外button，当type设置为submit时，button还有一些额外属性：</p>
+    <!--<table>
+        <tr><th>form: </th><td>指定关联的表单</td></tr>
+        <tr><th>formaction: </th><td>覆盖action属性，另外指定提交的URL</td></tr>
+        <tr><th>formentype: </th><td>覆盖entype属性，另外指定编码方式</td></tr>
+        <tr><th>formmethod: </th><td>覆盖method属性</td></tr>
+        <tr><th>formtarget: </th><td>覆盖novalidate属性，表明是否执行客户端数据的有效性检验。</td></tr>
+        <tr><th>formnovalidate</th><td>覆盖target属性</td></tr>
+    </table>-->
+    <ul>
+        <li><strong>form: </strong>指定关联的表单</li>
+        <li><strong>formaction: </strong>覆盖action属性，另外指定提交的URL</li>
+        <li><strong>formentype: </strong>覆盖entype属性，另外指定编码方式</li>
+        <li><strong>formmethod: </strong>覆盖method属性</li>
+        <li><strong>formtarget: </strong>覆盖target属性</li>
+        <li><strong>formnovalidate</strong>覆盖novalidate属性，表明是否执行客户端数据的有效性检验。</li>
+    </ul>
+    <p>在HTML5中input，button元素可以放在form元素外边，并且可以将其与文档内任何表单挂钩，只需为其设定form属性，属性的值等于form元素的id即可。</p>
+    <p>例：</p>
+    <form id="outsideform">
+        <label for="outside">使用表单外元素：<input name="outside" id="outside"></label>
+    </form>
+    <button form="outsideform">提交（在表单外）</button>
+
+
+    <h1>定制input元素</h1>
+    <p>input元素的属性极其复杂，其type属性有23个值，不同的值对应特定的额外属性可以使用，加起来有30个属性可供选择。</p>
+    <h3>Text型input元素: </h3>
+    <p><strong>maxlength</strong>属性设定了用户能够输入的最大数目，<strong>size</strong>属性则控制文本框最大显示字符数，二者均用整数表示。</p>
+    <p>例：</p>
+    <form id="sizeform">
+        <label for="size">控制文本框大小：<input size="15" maxlength="5" name="size" id="size"></label>
+        <button>提交</button>
+    </form>
+    <p><strong>value</strong>属性可以为input元素设定一个默认输入，而<strong>placeholder</strong>元素可以设定在文本框内显示的提示文字。placeholder的提示文字会在用户输入文本时隐藏，设定了value值时placeholder的值也会隐藏。另外，用button重置表单时，这些默认值和提示也会恢复。
+    </p>
+    <p>例：</p>
+    <form id="value-placeholder-form">
+        <p><label for="value">设定默认值：<input value="输入" name="value" id="value"></label></p>
+        <p><label for="value">设定提示文字：<input placeholder="请输入" name="placeholder" id="placeholder"></label></p>
+        <button>提交</button>
+    </form>
+
+    <p><strong>autofocus</strong>属性可以用来设定表单显示出来的时候自动聚焦到某个input元素。autofocus属性的值只有autofocus，可以不写。一个页面只能有一个autofocus属性，如果设置了多个autofocus属性，那么浏览器会自动聚焦到最后一个上。
+    </p>
+    <p>例：</p>
+    <form action="#" method="post">
+        <label for="autofocusform">自动聚焦：<input autofocus name="autofocusform" id="autofocusform"></label>
+        <button>提交</button>
+    </form>
+
+    <p>
+        可以设置disabled属性来禁用input元素（禁止用户输入），这个功能结合JavaScript很常用，disabled属性的值只有disabled，可以不写。设置disabled属性后，数据不会被发送到服务器，要想不让用户输入并且发送数据，可以使用<strong>readonly</strong>属性，该属性应用后用户不能编辑并且外观和普通文本框相同,所以要谨慎使用。
+    </p>
+    <p>例：</p>
+    <form action="#" method="post">
+        <p><label for="disabledform">禁止输入：<input disabled name="disabledform" id="disabledform"></label></p>
+        <p><label for="readonlyform">只读文本：<input readonly value="用户不能输入" name="disabledform" id="readonlyform"></label>
+        </p>
+        <button>提交</button>
+    </form>
+
+    <p>list属性配合datalist元素可以让用户从列表中选择选项填入input中。其中list属性的值要和datalist的id相同，datallist提供的值用option元素标记。</p>
+    <p>例：</p>
+    <form action="#" method="post">
+        <label for="optionform">禁止输入：<input list="optionlist" name="optionform" id="optionform"></label>
+        <datalist id="optionlist">
+            <option label="label属性">1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </datalist>
+        <button>提交</button>
+    </form>
+
+    <h3>passport型input元素: </h3>
+    <p>将input元素的type属性设定为passport，用户输入的文字将以*之类的掩码代替，但是<strong>向服务器传输数据的时候传送的是明文，所以出于安全考虑最好使用SSL/HTTPS来加密传输内容。</strong>
+    </p>
+    <p>例：</p>
+    <form action="#" method="post">
+        <label for="passport">密码型inout：<input type="password" name="passport" id="passport"></label>
+        <button>提交</button>
+    </form>
+
+    <h3>按钮型input元素: </h3>
+    <p>type属性如果设定为submit,reset或button，input元素将会生成类似对应三种button元素，这种设定主要是为了兼容老式浏览器（IE6等）。</p>
+    <p>例：</p>
+    <form action="#" method="post">
+        <label for="button">按钮型input：<input type="submit" name="button" id="button"></label>
+        <button>提交</button>
+    </form>
+
+    <h3>其他类型input元素: </h3>
+    <p>HTML5有丰富的类型来让浏览器对input元素输入的控制更加准确：</p>
+    <ul>
+        <li><strong>checkbox: </strong>一个只有是合否的复选框</li>
+        <li><strong>radio: </strong>将输入限制在固定选项中</li>
+        <li><strong>color: </strong>只能输入颜色</li>
+        <li><strong>date: </strong>只能输入日期</li>
+        <li><strong>datetime: </strong>只能输入带时区信息的世界时间</li>
+        <li><strong>datetime-local: </strong>只能输入不带时区信息的世界时间</li>
+        <li><strong>email: </strong>只能输入电子邮件地址</li>
+        <li><strong>month: </strong>只能输入年和月</li>
+        <li><strong>number: </strong>只能输入数字</li>
+        <li><strong>range: </strong>只能输入限定范围的数值</li>
+        <li><strong>tel: </strong>只能输入电话号码</li>
+        <li><strong>time: </strong>只能输入时间信息</li>
+        <li><strong>week: </strong>只能输入年和星期信息</li>
+        <li><strong>url: </strong>只能输入限定的url</li>
+    </ul>
+    <p>number型input元素可以设置最大最小值和调整步长，浏览器会在文本框右侧设置两个三角用于调整。</p>
+    <p>例：</p>
+    <form action="#" method="post">
+        <p><label for="number">number型input：<input type="number" value="0" name="number" id="number"></label>
+            <button>提交</button>
+        </p>
+    </form>
+
+    <p>range型input元素可以让用户从一个范围中选取一个数值，也要设置最大最小值和步长。</p>
+    <p>例：</p>
+    <form action="#" method="post">
+        <p><label for="range">range型input：<input type="range" value="0" name="range" id="range"></label>
+            <button>提交</button>
+        </p>
+    </form>
+
+    <p>checkbox型input元素会生成是或否的复选框，这种元素只有checked，required，value三个属性可用，check用来指定默认的状态，value指定选定时传递的值，默认为on。</p>
+    <p>例：</p>
+    <form action="#" method="post">
+        <p><label for="checkbox">checkbox型input：<input type="checkbox" name="checkbox" id="checkbox"></label>
+            <button>提交</button>
+        </p>
+    </form>
+
+    <p>
+        radio型input元素可以用来生成一组单选按钮，用户可以从一批固定的选项中作出选择。它的额外选项和check剥削相同，要想形成互斥选项，将input元素的名字设定成相同即可。(若想点击可取消选择，必须用JS手段实现)</p>
+    <p>例：</p>
+    <form action="#" method="post">
+        <p><label for="radio1"><input type="radio" name="radio" value="+1s" id="radio1">+1s</label>
+            <label for="radio2"><input type="radio" name="radio" value="+2s" id="radio2">+2s</label>
+            <label for="radio3"><input type="radio" name="radio" value="+3s" id="radio3">+3s</label>
+            <button>提交</button>
+        </p>
+    </form>
+
+    <p>
+        tel,email,url型input元素可以用来让用户输入规定格式的字符串，这三种input本身没有区别，只是pattern属性设置成不同的正则表达式。这三种input元素都显示为普通文本的样子，只有在提交数据时浏览器才回去检查用户输入。</p>
+    <p>例：</p>
+    <form action="#" method="post">
+        <p><label for="email">email型input：<input type="email" name="email" id="email"></label>
+            <button>提交</button>
+        </p>
+    </form>
+    <form action="#" method="post">
+        <p><label for="tel">tel型input：<input type="tel" name="tel" id="tel"></label>
+            <button>提交</button>
+        </p>
+    </form>
+    <form action="#" method="post">
+        <p><label for="url">url型input：<input type="url" name="url" id="url"></label>
+            <button>提交</button>
+        </p>
+    </form>
+
+    <p>
+        将type值设置为date,datetime,datetime-local,month,time,month,week可以让用户输入时间，时间的表示非常复杂，不同地区有不同的表示方式，但标准格式是有严格规定的，这些类型的input元素不同的浏览器支持程度也不尽相同。</p>
+    <p>例：</p>
+    <form action="#" method="post">
+        <p><label for="datetime">datetime型input(主流浏览器均和文本型相同)：<input type="datetime" name="datetime"
+                                                                     id="datetime"></label>
+            <button>提交</button>
+        </p>
+    </form>
+
+    <form action="#" method="post">
+        <p><label for="date">date型input(Chorme支持)：<input type="date" name="date" id="date"></label>
+            <button>提交</button>
+        </p>
+    </form>
+
+    <form action="#" method="post">
+        <p><label for="datetime-local">datetime-local型input(Chrome支持)：<input type="datetime-local"
+                                                                             name="datetime-local" id="datetime-local"></label>
+            <button>提交</button>
+        </p>
+    </form>
+    <form action="#" method="post">
+        <p><label for="time">time型input(Chrome支持)：<input type="time" name="time" id="time"></label>
+            <button>提交</button>
+        </p>
+    </form>
+    <form action="#" method="post">
+        <p><label for="month">month型input(Chrome支持)：<input type="month" name="month" id="month"></label>
+            <button>提交</button>
+        </p>
+    </form>
+    <form action="#" method="post">
+        <p><label for="week">week型input(Chrome支持)：<input type="week" name="week" id="week"></label>
+            <button>提交</button>
+        </p>
+    </form>
+    <p>color型input元素用来让用户选取颜色，颜色以#开头，后接六位数字或字母，各种浏览器对color的支持差距很大。</p>
+    <p>例：</p>
+    <form action="#" method="post">
+        <p><label for="color">color型input(Firefox，Chrome支持)：<input type="color" name="color" id="color"></label>
+            <button>提交</button>
+        </p>
+    </form>
+
+    <p>search型input元素本质上和文本型相同，浏览器会使他变得更像一个搜索框。Chrome浏览器会在文本框右侧加一个叉子以清除输入。</p>
+    <p>例：</p>
+    <form action="#" method="post">
+        <p><label for="search">search型input(Chrome，Edge（IE）支持)：<input type="search" name="search" id="search"></label>
+            <button>提交</button>
+        </p>
+    </form>
+
+    <p>hidden型input元素可以生成用户看不到或不能编辑的数据项，但却可以发送给服务器。</p>
+    <p>例：</p>
+    <form action="#" method="post">
+        <p><label for="hidden">hidden型input（并看不到）：<input type="hidden" name="hidden" value="hidden" id="hidden"></label>
+            <button>提交</button>
+        </p>
+    </form>
+
+    <p>
+        image型input元素可以让用户点击图片来上传表单，其formaction，formentype等属性和button的相同，src属性用来设置图片链接，height和width设置宽和高，在发送数据给服务器时，会把用户点击图片基于图片右上角的x,y坐标一并发送给服务器。</p>
+    <p>例：</p>
+    <form action="#" method="post">
+        <p><label for="image">image型input：<input type="image" src="hj.png" width="30px" height="30px" name="image"
+                                                 id="image"></label>
+            <button>提交</button>
+        </p>
+    </form>
+
+    <p>file型input元素允许用户上传文件，其accept元素用来指定接受文件的MIME类型，关于MIME类型标准，参见<a target="_blank"
+                                                                     href="http://www.w3school.com.cn/media/media_mimeref.asp">W3CSchool
+        MIME类型</a>; required属性用于输入验证，multiple属性可以控制是否允许上传多个文件。</p>
+    <p>例：</p>
+    <form action="#" method="post">
+        <p><label for="file">file型input：<input type="file" multiple name="file" id="file"></label>
+            <button>提交</button>
+        </p>
+    </form>
+
+    <h1>其他表单元素</h1>
+    <p>
+        select元素可以生成选项列表，select生成的选项列表更紧凑，相比datelist元素，select元素生成的列表不能编辑，适合选项多的时候使用。其name，disabled，form，autofocus，required属性和input相同，multiple属性可以让用户输入多个选项。size可以控制显示多少选项（不建议使用）</p>
+    <p>例：</p>
+    <form action="#" method="post">
+        <label for="file">select元素：
+            <select name="select" id="select">
+                <option value="+1s">+1s</option>
+                <option value="+2s" selected>+2s</option>
+                <option value="+3s">+3s</option>
+                <option value="+4s">+4s</option>
+                <option value="+5s">+5s</option>
+            </select></label>
+        <button>提交</button>
+    </form>
+
+    <p>optgroup元素用来给select中的option元素编组，label属性可以显示编组名，disabled属性可以禁止用户选取。</p>
+    <p>例：</p>
+    <form action="#" method="post">
+        <label for="file">select元素：
+            <select name="optgroup" id="optgroup">
+                <optgroup label="+1">
+                    <option value="+1s">+1s</option>
+                    <option value="+2s" selected>+2s</option>
+                </optgroup>
+                <optgroup label="+3" disabled>
+                    <option value="+3s">+3s</option>
+                    <option value="+4s">+4s</option>
+                    <option value="+5s">+5s</option>
+                </optgroup>
+            </select></label>
+        <button>提交</button>
+    </form>
+
+    <p><strong>???</strong>textarea元素生成一个多行文本框,其支持placeholder，autofocus等input元素的属性，他的局部属性有wrap，用来设置是否在用户输入时插入换行符，rows和cols控制文本框大小。</p>
+    <p>例：</p>
+    <form action="#" method="post">
+        <label for="textarea">textarea元素生成多行文本框<br>
+        <textarea name="textarea" id="textarea" wrap="soft" cols="42" rows="5"></textarea>
+        </label>
+    </form>
+
+
+    <p>例：</p>
+    <form oninput="x.value = parseInt(a.value)+parseInt(b.value)">0
+        <input title="range" type="range" id="a" value="50">100
+        +<input title="number" type="number" id="b" value="50">
+        =<output name="x" for="a b"></output>
+    </form>
+
+    <h1>输入验证</h1>
+    <p>HTML5引入了对输入验证的支持，之前这些功能只能用JS来实现，HTML5引入了简单的输入验证，然而这还是不能替代服务器的验证。</p>
+    <p>基本的用于验证的属性有required，min，max和pattern，这些属性之前都介绍过</p>
+    <p>如果想禁用输入验证（用于想让用户保存输入进度，而不是每次提交都需验证），在form元素中添加novalidate属性或input元素和button元素的formnovalidate属性。</p>
+
+</article>
+<footer>
+    <span class="footer">Create by LZ</span>
+</footer>
+</body>
+</html>

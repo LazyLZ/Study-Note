@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-cmn">
+<head>
+    <meta charset="UTF-8">
+    <title>第二章</title>
+    <script defer src="../default.js"></script>
+    <link rel="stylesheet" type="text/css" href="../default.css"/>
+</head>
+<body>
+<header><h1>第二章--在HTML中使用JavaScript</h1></header>
+
+<article>
+    <p>在HTML中插入JavaScript的方法，主要是使用<strong>&#60script&#62标签</strong>,&#60script&#62定义了六个属性:</p>
+    <ul>
+        <li><strong>async:</strong>异步脚本</li>
+        <li><strong>defer:</strong>延迟脚本，仅外部脚本有效</li>
+        <li><strong>charset:</strong>指定代码字符集，极少用</li>
+        <li><strong>language:</strong>已废弃</li>
+        <li><strong>src:</strong>可选，指定包含外部脚本的文件路径</li>
+        <li><strong>type:</strong>脚本类型，默认JavaScript</li>
+    </ul>
+    <p>例1：内部脚本</p>
+    <pre><code> &#60head&#62
+    &#60script&#62
+         function sayHi(){
+             alert(&quotHi&quot);
+         }
+          sayHi();
+    &#60/script&#62
+&#60/head&#62
+    </code></pre>
+    <p>例2：外部脚本</p>
+    <pre><code>&#60head&#62
+    &#60script src="test.js"&#62&#60/script&#62
+&#60/head&#62
+    </code></pre>
+</article>
+<footer>
+    <span class="footer">Create by LZ 2016.7.2</span>
+</footer>
+</body>
+</html>

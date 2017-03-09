@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-cmn">
+<head>
+    <meta charset="UTF-8">
+    <title>表格</title>
+    <script defer src="../default.js"></script>
+    <link rel="stylesheet" type="text/css" href="../default.css"/>
+</head>
+<body>
+<header>
+    <h1>表格--显示二维数据</h1>
+</header>
+<article>
+    <h1>一、创建基本表格</h1>
+    <p>创建基本表格，只需三个元素，table，tr，td。这三个元素是创建表格必须的元素table代表表格，tr代表表格的行，td代表表格的列。HTML的表格是基于行的。</p>
+    <p>table元素有border属性，用来设置表格是否有边框，使用这个属性是为了告诉浏览器这个表格是用来表示格式数据的，而不是用来布置其他元素的。border属性只能设置为1或空。</p>
+    <p>table的特性之一是不用担心其大小，表格会自动适应其中的文字，表现在:</p>
+    <ul>
+        <li>表格的大小根据其中的文字调整，而不是占据整行</li>
+        <li>如果一行文字中有空格（包括单词间的空格但不包括标点）并且横向空间不够时，那么表格为其自动换行</li>
+    </ul>
+    <p>例：</p>
+    <table border="1">
+        <tr>
+            <td>这是一个表格</td>
+            <td>列标签包括在行标签中</td>
+            <td>因为HTML表格基于行创建</td>
+        </tr>
+        <tr>
+            <td>border属性设置为1</td>
+            <td>浏览器自动为表格加上了边框</td>
+            <td>具体的表格样式则由CSS控制</td>
+        </tr>
+    </table>
+
+    <h1>二、为表格添加结构</h1>
+    <p>构成表格基本结构的还有th元素，th元素用来区分数据和对数据的说明，在一行中可以th和td混用。</p>
+    <p>tbody,thead,tfoot分别表示表格的表头，表格和表脚，其中大多数浏览器会在table中没有tbody的情况下加上tbody元素。thead元素标记表格的表头行，其中也要包括tr和th元素，tfoot同理。</p>
+    <p>在thead元素之前还有一个caption元素可以标记表格的标题，标题默认居中显示在表格上方。</p>
+    <table border="1">
+        <caption>综合实例</caption>
+        <thead>
+        <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>color</th>
+            <th>Size</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>Favorite:</th>
+            <td>Apples</td>
+            <td>Green</td>
+            <td>Medium</td>
+        </tr>
+        <tr>
+            <th>2nd Favorite:</th>
+            <td>Oranges</td>
+            <td>orange</td>
+            <td>Large</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>color</th>
+            <th>Size</th>
+        </tr>
+        </tfoot>
+    </table>
+    <h1>三、不规则表格</h1>
+    <p>
+        为了表示复杂数据，有时需要单元格横跨几行或几列，只是需要用到td和th的colspan和rowspan属性。其中colspan会使应用该属性的单元格像右跨指定的列数，而rowspan会使应用该属性的单元格向下跨指定的单元格个数。</p>
+    <table border="1">
+        <tbody>
+        <tr>
+            <td colspan="3">1跨三列</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td rowspan="3">5<br>跨<br>三<br>行</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td colspan="2">11跨两列</td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+        </tr>
+        </tbody>
+    </table>
+    <h1>四、处理列</h1>
+    <p>HTML的表格是基于行的，那么处理单列就会比较麻烦，所以就有了colgroup元素和col元素，用来专门处理整列。colgroup和col的特点如下：</p>
+    <ul>
+        <li>colgroup元素控制表格的整列，包括thead和tfoot中的列</li>
+        <li>colgroup元素可以应用span属性指定控制的列数，从左第一列算起。</li>
+        <li>col元素可以在colgroup元素中，在不应用span属性的情况下，每个col元素控制左起每一列。</li>
+        <li>给col元素应用span属性，特征和给colgroup应用相同。</li>
+        <li>col为自闭和标签</li>
+        <li>跨列的单元格按左起第一个单元格计算</li>
+        <li>应用CSS样式时colgroup和col的样式优先级最低，虽然都会应用，但其他样式覆盖在其上。</li>
+    </ul>
+    <table border="1">
+        <colgroup>
+            <col span="2" class="now">
+            <col style="background: rgba(0,255,0,0.51);">
+        </colgroup>
+        <tbody>
+        <tr style="background: rgba(0,0,255,0.52);">
+            <td colspan="3">1跨三列</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td rowspan="3">5<br>跨<br>三<br>行</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td colspan="2">11跨两列</td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+        </tr>
+        </tbody>
+    </table>
+</article>
+<footer>
+    <span class="footer">Create by LZ</span>
+</footer>
+</body>
+</html>

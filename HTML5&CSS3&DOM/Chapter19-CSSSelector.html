@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-cmn">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS选择器</title>
+    <script defer src="../default.js"></script>
+    <link rel="stylesheet" type="text/css" href="../default.css"/>
+</head>
+<body>
+<header>
+    <h1>CSS选择器--选择文档中指定的元素</h1>
+    <small>主要参考资料：<a href="http://css.doyoe.com/" target="_blank">CSS参考手册v4.2.3</a></small>
+</header>
+<article>
+    <p>CSS选择器的作用是找出某类元素，以便我们使用style元素或者外部样式表对这类元素使用样式。选择器有元素选择器，属性选择器，伪类选择器，伪对象选择器几种，选择器之间还可以通过关系符号连接构成更复杂的选择器。</p>
+    <h3>一、元素选择符</h3>
+    <table class="element-list">
+        <thead>
+        <tr>
+            <th>选择器</th>
+            <th>说明</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>通配选择符：*</th>
+            <td>遍历所有元素，通常不建议使用通配选择符，因为它会遍历并命中文档中所有的元素，出于性能考虑，需酌情使用</td>
+        </tr>
+        <tr>
+            <th>类型选择器：E</th>
+            <td>直接以元素名为选择器，将选中所有该类型元素。</td>
+        </tr>
+        <tr>
+            <th style="width: 10em;">ID选择器：E#myID</th>
+            <td>会选中元素ID值匹配的元素。前面可以加任何选择器（不带空格）以选定特定元素且id值匹配的元素</td>
+        </tr>
+        <tr>
+            <th>类选择器：E.class</th>
+            <td>选中类名匹配的元素，前面同样可以加任何选择器（不带空格）</td>
+        </tr>
+
+        </tbody>
+    </table>
+    <h3>二、关系选择器</h3>
+    <table class="element-list">
+        <thead>
+        <tr>
+            <th>选择器</th>
+            <th>说明</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>并集： ","</th>
+            <td>如果两类元素使用相同的样式，可以用逗号（,）链接两个选择器（取并集）来简化样式表，提高效率</td>
+        </tr>
+        <tr>
+            <th>包含： " "</th>
+            <td>两个选择器用空格连接，表示后者是前者的后代元素（不只子元素）</td>
+        </tr>
+        <tr>
+            <th>子元素： ></th>
+            <td>两个选择器用>链接，表示后者是前者的直接子元素。</td>
+        </tr>
+        <tr>
+            <th>相邻： +</th>
+            <td>两个选择器用+链接，表示后者是前者下边紧邻的兄弟元素。</td>
+        </tr>
+        <tr>
+            <th>兄弟： ~</th>
+            <td>两个选择器用~链接，表示后者是前者的兄弟元素（所有兄弟元素）。</td>
+        </tr>
+        </tbody>
+    </table>
+    <h3>三、属性选择器</h3>
+    <table class="element-list">
+        <thead>
+        <tr>
+            <th>选择器</th>
+            <th>说明</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>E[attr]</th>
+            <td>选择设定该属性的元素，前面可以加其他选择器（无空格），表示特定元素且有该属性，下同。</td>
+        </tr>
+        <tr>
+            <th>E[attr="val"]</th>
+            <td>选择具有att属性且属性值等于val的E元素。</td>
+        </tr>
+        <tr>
+            <th>E[attr~="val"]</th>
+            <td>选择具有att属性且属性值为一用空格分隔的字词列表，其中一个等于val的E元素（包含只有一个值且该值等于val的情况）。</td>
+        </tr>
+        <tr>
+            <th>E[attr^="val"]</th>
+            <td>选择具有att属性且属性值为以val开头的字符串的E元素。（常用于class属性）</td>
+        </tr>
+        <tr>
+            <th>E[attr$="val"]</th>
+            <td>选择具有att属性且属性值为以val结尾的字符串的E元素。 （常用于class属性）</td>
+        </tr>
+        <tr>
+            <th>E[attr*="val"]</th>
+            <td>选择具有att属性且属性值为包含val的字符串的E元素。</td>
+        </tr>
+        <tr>
+            <th>E[attr|="val"]</th>
+            <td>选择具有att属性且属性值为以val开头并用连接符"-"分隔的字符串的E元素，如果属性值仅为val，也将被选择。（常用于class属性）</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h3>四、伪类选择器</h3>
+    <table class="element-list">
+        <thead>
+        <tr>
+            <th>选择器</th>
+            <th>说明</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th style="width: 10em">E:link</th>
+            <td>设置超链接a在未被访问前的样式。如果需要给超链接定义：访问前，鼠标悬停，当前被点击，已访问这4种伪类效果，超链接的4种状态，需要有特定的书写顺序才能生效，可靠的顺序是：l(link)ov(visited)e h(hover)a(active)te, 即用喜欢(love)和讨厌(hate)两个词来概括。</td>
+        </tr>
+        <tr>
+            <th>E:visited</th>
+            <td>设置超链接a在其链接地址已被访问过时的样式。 </td>
+        </tr>
+        <tr>
+            <th>E:hover</th>
+            <td>设置元素在其鼠标悬停时的样式。 </td>
+        </tr>
+        <tr>
+            <th>E:active</th>
+            <td>设置元素在被用户激活（在鼠标点击与释放之间发生的事件）时的样式。 </td>
+        </tr>
+        <tr>
+            <th>E:focus</th>
+            <td>设置对象在成为输入焦点（该对象的onfocus事件发生）时的样式。webkit内核浏览器会默认给:focus状态的元素加上outline的样式。</td>
+        </tr>
+        <tr>
+            <th>E:lang(语言名)</th>
+            <td>匹配具有lang全局属性且值和括号内相同的元素。</td>
+        </tr>
+        <tr>
+            <th>E:not(s)</th>
+            <td>匹配不含有s选择符的元素E。有了这个选择符，那么你将可以很好的处理类似这样的场景：假定有个列表，每个列表项都有一条底边线，但是最后一项不需要底边线。（例：li:not(:last-child)）</td>
+        </tr>
+        <tr>
+            <th>E:root</th>
+            <td>匹配E元素在文档的根元素。在HTML中，根元素永远是HTML。</td>
+        </tr>
+        <tr>
+            <th>E:first-child</th>
+            <td>匹配父元素的第一个子元素E。要使该属性生效，E元素必须是某个元素的子元素，E的父元素最高是body，即E可以是body的子元素。</td>
+        </tr>
+        <tr>
+            <th>E:Last-child</th>
+            <td>匹配父元素的最后一个子元素E。 </td>
+        </tr>
+        <tr>
+            <th>E:only-child</th>
+            <td>匹配父元素仅有的一个子元素E。</td>
+        </tr>
+        <tr>
+            <th>E:nth-child(n)</th>
+            <td>匹配父元素的第n个子元素E，假设该子元素不是E，则选择符无效。</td>
+        </tr>
+        <tr>
+            <th>E:nth-last-child(n)</th>
+            <td>匹配父元素的倒数第n个子元素E，假设该子元素不是E，则选择符无效。 </td>
+        </tr>
+        <tr>
+            <th>E:first-of-type</th>
+            <td>匹配同类型中的第一个同级兄弟元素E。 </td>
+        </tr>
+        <tr>
+            <th>E:last-of-type</th>
+            <td>匹配兄弟元素中第一个为E的元素。要使该属性生效，E元素必须是某个元素的子元素，E的父元素最高是html，即E可以是html的子元素，也就是说E可以是body。</td>
+        </tr>
+        <tr>
+            <th>E:only-of-type</th>
+            <td>匹配兄弟元素中唯一一个为E的元素。</td>
+        </tr>
+        <tr>
+            <th>E:nth-of-type(n)</th>
+            <td>匹配同类型中的第n个同级兄弟元素E。 </td>
+        </tr>
+        <tr>
+            <th>E:nth-las-of-type(n)</th>
+            <td>匹配同类型中的倒数第n个同级兄弟元素E。 /td>
+        </tr>
+        <tr>
+            <th>empty</th>
+            <td>匹配没有任何子元素（包括text节点，即内容也必须为空）的元素E。</td>
+        </tr>
+        <tr>
+            <th>checked</th>
+            <td>匹配用户界面上处于选中状态的元素E。(用于input type为radio与checkbox时) </td>
+        </tr>
+        <tr>
+            <th>enabled</th>
+            <td>匹配用户界面上处于可用状态的元素E。</td>
+        </tr>
+        <tr>
+            <th>disabled</th>
+            <td>匹配用户界面上处于禁用状态的元素E。</td>
+        </tr>
+        <tr>
+            <th>target</th>
+            <td>匹配相关URL指向的E元素。URL后面跟锚点#，指向文档内某个具体的元素。这个被链接的元素就是目标元素(target element)，:target选择器用于选取当前活动的目标元素。（刷新页面时活动状态不重置）</td>
+        </tr>
+        <tr>
+            <th>@page:first</th>
+            <td>设置在打印时页面容器第一页使用的样式。仅用于@page规则。（支持较差，不建议使用）</td>
+        </tr>
+        <tr>
+            <th>@page:left</th>
+            <td>设置页面容器位于装订线左边的所有页面使用的样式。仅用于@page规则。（支持较差，不建议使用）</td>
+        </tr>
+        <tr>
+            <th>@page:right</th>
+            <td>设置页面容器位于装订线右边的所有页面使用的样式。仅用于@page规则。（支持较差，不建议使用）</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h3>五、伪对象选择器</h3>
+    <h3>四、伪类选择器</h3>
+    <table class="element-list">
+        <thead>
+        <tr>
+            <th>选择器</th>
+            <th>说明</th>
+        </tr>
+        </thead>
+        <tbody>
+    <tr>
+        <th>E::first-letter</th>
+        <td>设置对象内的第一个字符的样式。</td>
+    </tr>
+    <tr>
+        <th>E::first-line</th>
+        <td>此伪对象仅作用于块对象。内联对象要使用该伪对象，必须先将其设置为块级对象。该伪类常被用来配合font-size属性和float属性制作首字下沉效果。</td>
+    </tr>
+    <tr>
+        <th>E::before</th>
+        <td>设置在对象前（依据对象树的逻辑结构）发生的内容。用来和content属性一起使用，并且必须定义content属性。E::before后的属性仅应用于插入内容</td>
+    </tr>
+    <tr>
+        <th>E::after</th>
+        <td>设置在对象后（依据对象树的逻辑结构）发生的内容。用来和content属性一起使用，并且必须定义content属性 </td>
+    </tr>
+    <tr>
+        <th>E::placeholder</th>
+        <td>::placeholder 伪元素用于控制表单输入框占位符的外观，它允许开发者/设计师改变文字占位符的样式，默认的文字占位符为浅灰色。当表单背景色为类似的颜色时它可能效果并不是很明显，那么就可以使用这个伪元素来改变文字占位符的颜色。需要注意的是，除了Firefox是 ::[prefix]placeholder，其他浏览器都是使用 ::[prefix]input-placeholder。Firefox支持该伪元素使用text-overflow属性来处理溢出问题。（目前各浏览器都必须使用前缀来支持该选择器）</td>
+    </tr>
+    <tr>
+        <th>E::selection</th>
+        <td>设置对象（文本）被选择时的样式。需要注意的是，::selection只能定义被选择时的background-color，color及text-shadow(IE11尚不支持定义该属性)。</td>
+    </tr>
+        </tbody>
+    </table>
+</article>
+<footer>
+    <span class="footer">Create by LZ</span>
+</footer>
+</body>
+</html>

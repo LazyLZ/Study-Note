@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-cmn">
+<head>
+    <meta charset="UTF-8">
+    <title>嵌入内容</title>
+    <script defer src="../default.js"></script>
+    <link rel="stylesheet" type="text/css" href="../default.css"/>
+</head>
+<body>
+<header>
+    <h1>嵌入内容--</h1>
+</header>
+<article>
+    <p>img元素允许用户嵌入一张图像，其src属性用来设置嵌入图像的URL，alt显示图片无法显示时的提示文字，width和height设置图像的尺寸（实际尺寸而不是你想要的尺寸）。</p>
+    <p>例：</p>
+    <img src="呲牙.gif" height="284" width="284" alt="呲牙">
+
+    <p>可以在超链接中嵌入图像，这样图片就被设置为了一个超链接。</p>
+    <p>例：</p>
+    <a href="http://baike.baidu.com/item/%E6%BB%91%E7%A8%BD/19219706" target="_blank"><img src="hj.png" height="121"
+                                                                                           width="121" alt="滑稽"></a>
+
+    <p>如果给a元素中的img元素应用ismap属性，那么在链接的时候或会在连接后以?x,y的形式传送用户点击图片的位置，服务器可以根据不同的位置创建分区响应图。</p>
+    <p>如果给img应用usemap属性（无需a元素），就会创建一个客户端分区响应图，客户端分区响应图的关键元素时map元素，map元素包含多个area元素，他们各自代表了图像上可被点击的区域。</p>
+    <p>
+        area元素也有相当多的属性，其中，href，rel，type等用来设置导航的url，shape和coords属性用来设置用户点击的区域，其中，shape有rect，circle，poly，default四个值可选分别定义了方形，圆形，多边形，和默认（全部区域）。其中，不同shape属性值对应的coords值设置如下：</p>
+    <ul>
+        <li><strong>rect: </strong>(x<sub>1</sub>,y<sub>1</sub>,x<sub>2</sub>,y<sub>2</sub>),分别表示矩形左上角和右下角的坐标</li>
+        <li><strong> circle: </strong>(x,y,r)，分别定义了圆心坐标(x,y)和半径r</li>
+        <li>
+            <strong>poly: </strong>(x<sub>1</sub>,y<sub>1</sub>,x<sub>2</sub>,y<sub>2</sub>,.....x<sub>n</sub>y<sub>n</sub>)对应多边形的顶点坐标
+        </li>
+    </ul>
+    <p>例：</p>
+    <img src="hj.png" height="121" usemap="#huaji" width="121" alt="滑稽">
+    <map name="huaji">
+        <area href="http://baike.baidu.com/item/%E6%BB%91%E7%A8%BD/19219706" target="_blank" shape="rect"
+              coords="0,0,121,60"/>
+        <area href="http://baike.baidu.com/item/滑稽/921527" target="_blank" shape="rect" coords="0,61,121,121"/>
+    </map>
+
+    <p>
+        iframe元素允许我们在当前文档中在嵌入一张HTML文档width和height属性定义宽和高，seamless可以设置让框架像是文档的一部分而不是带边框，src属性指定一开始加载的url（可选），sandbox可以试着禁用文档的脚本，表单和插件，将sandbox的值设置为allow-forms,
+        allow-scripts, allow-top-navigations, allow-same-origin可以分别允许表单，脚本，指向顶层上下文（替换整个文档）、内容试问与其余部分有相同的来源位置。</p>
+    <p><a href="http://baike.baidu.com/item/%E6%BB%91%E7%A8%BD/19219706" target="myframe">
+        <button>链接</button>
+    </a></p>
+    <iframe name="myframe" height="500px" width="700px" src="https://www.baidu.com" sandbox="allow-script"></iframe>
+
+    <p>
+        embed元素和object元素可以加载插件，embed的src，type，height，width和iframe元素相同，任何其他属性将被视为插件参数。object元素则更为灵活，object的data属性用来指定URL，在object中嵌入param元素指定插件需要的参数，name属性设置参数，value属性设置值，此外，object元素中还可以输入文字用来指定插件无法显示的时候展示的提示文字。</p>
+    <br>
+    <p>progress元素可以用来表示某段任务逐渐完成的过程。其局部属有value,max和form，value定义了当前进度，它位于0和max之间，max属性不设定时默认1。</p>
+    <p>例：
+        <progress id="myprogress" value="0.333"></progress>
+    </p>
+
+    <p>meter元素用来设定一个范围内的可能值，可以设定范围来让用户设定不同值的时候有不同的效果，通过设定min，max，low，high，optimum来设定。</p>
+    <p>例：
+        <meter id="mymeter" value="60" min="10" max="100" low="40" high="80" optimum="60"></meter>
+    </p>
+    <p>其他还有嵌入视频和音频（audio，video，source，track）、图形（canvas）、之后将有详细介绍。</p>
+</article>
+<footer>
+    <span class="footer">Create by LZ</span>
+</footer>
+</body>
+</html>

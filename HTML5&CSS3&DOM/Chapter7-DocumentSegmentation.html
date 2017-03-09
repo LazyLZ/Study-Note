@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-cmn">
+<head>
+    <meta charset="UTF-8">
+    <title>文档分节</title>
+    <script defer src="../default.js"></script>
+    <link rel="stylesheet" type="text/css" href="../default.css"/>
+</head>
+<body>
+<header>
+    <h1>文档分节--划分各个主题和概念</h1>
+</header>
+<article>
+<table class="element-list">
+    <thead><tr><th>标签</th><th>说明</th></tr></thead>
+    <tbody>
+    <tr>
+        <th>h1--h6: </th>
+        <td>h1到h6是HTML的标题体系，h1级别最高，同级别的标题通常用来将内容划分成几个部分，每个部分一个主题。<br>
+            例：<h1>h1标题</h1><h2>h2标题</h2><h3>h3标题</h3></td>
+    </tr>
+    <tr>
+        <th>hgroup: </th>
+        <td>用于给标题分组，当出现多级标题时，hgroup元素可以有效的将标题分开。</td>
+    </tr>
+    <tr>
+        <th>section: </th>
+        <td>用于显式的生成节，section元素用来包含的应该是那些能列入文档大大纲或目录的内容。</td>
+    </tr>
+    <tr>
+        <th>header: </th>
+        <td>用于添加文档的头部，通常是刊头或者徽标，通常与footer成对出现。header元素通常包括一个标题或一个hgroup元素，还可以包含该节的导航元素（nav）。</td>
+    </tr>
+    <tr>
+        <th>footer: </th>
+        <td>footer元素通常包含着该节的总结信息，包括作者介绍，版权信息，相关内容链接，免责声明等等。</td>
+    </tr>
+    <tr>
+        <th>nav: </th>
+        <td>用来生成导航区域，它包含着到其他页或同一页的其他部分的链接。该元素的目的是划出文档的主要导航区域。</td>
+    </tr>
+    <tr>
+        <th>article: </th>
+        <td>article元素代表文档中独立成篇的内容，可以独立于页面发布或使用。</td>
+    </tr>
+    <tr>
+        <th>aside: </th>
+        <td>aside元素用来表示跟周边内容稍微沾点边的内容，类似书籍或杂志的侧栏，它可能是一些背景信息，到相关文章的链接，诸如此类。</td>
+    </tr>
+    <tr>
+        <th>address: </th>
+        <td>用于提供联系信息，address作为article的后代元素时，他的联系信息被视为该article的，否则就被视为是整个文档的。</td>
+    </tr>
+    <tr>
+        <th>details, summary: </th>
+        <td>details元素在文档中生成一个区域，用户可以展开它以了解关于某主题的更多详情。details通常包含个summary元素，后者为详情区域生成一个说明标签。其open属性可以让其一直展开。<br>
+        例：<details>
+                <summary>+1s</summary>
+                苟利国家生死已，岂因祸福避趋之
+            </details></td>
+    </tr>
+    </tbody>
+</table>
+</article>
+<footer>
+    <span class="footer">Create by LZ</span>
+</footer>
+</body>
+</html>

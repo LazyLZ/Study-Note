@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-cmn">
+<head>
+    <meta charset="UTF-8">
+    <title>组织内容</title>
+    <script defer src="../default.js"></script>
+    <link rel="stylesheet" type="text/css" href="../default.css"/>
+</head>
+<body>
+<header>
+    <h1>组织内容--对内容分组</h1>
+</header>
+<article>
+<p>浏览器会忽略HTML文档的所有结构，包括将多个连续的空格合并为一个，忽略回车等等，这样做是为了将文档的布局与其在浏览器的布局分开。</p>
+    <table class="element-list">
+        <thead><tr><th>标签</th><th>说明</th></tr></thead>
+        <tbody>
+        <tr>
+            <th>p: </th>
+            <td>用于标记段落。<br>例：
+                <p>这是一个段落，段落由多个句子组成，这些句子往往围绕着同一个主题。</p></td>
+        </tr>
+        <tr>
+            <th>div: </th>
+            <td>div元素没有具体含义，找不到恰当的元素时可以用这个元素建立结构并赋予其含义，尽量少使用div。<br>
+                例：<div>div元素没有具体含义。不到万不得已最好不使用。</div></td>
+
+        </tr>
+        <tr>
+            <th>pre: </th>
+            <td>pre元素可以保留文档的原格式，阻止浏览器合并空格，这在文档的一部分原格式有重要意义的时候适用，比如代码的缩进等。<br>
+                例：<pre>pre元素保留了元素的原格式       可见其并不合并空格。</pre></td>
+        </tr>
+        <tr>
+            <th>blockquote: </th>
+            <td>表示引自他处的一片内容，通常用在引用内容很多的情况下。cite属性指向引用的URL。<br>
+                例：<blockquote cite="http://baike.baidu.com/item/JetBrains">JetBrains是一家捷克的软件开发公司，该公司位于捷克的布拉格，并在俄国的圣彼得堡及美国麻州波士顿都设有办公室，该公司最为人所熟知的产品是Java编程语言开发撰写时所用的集成开发环境：IntelliJ IDEA。</blockquote></td>
+        </tr>
+        <tr>
+            <th>ol: </th>
+            <td>表示有序列表，列表项目用li元素表示，start属性表示列表开始编号的值，type属性用来设置编号类型，有1，a，A，i(罗马小写)，I(罗马大写)几个值可用。<br>
+                例：<ol type="I">
+                    <li>打开冰箱门</li>
+                    <li>把大象放冰箱里</li>
+                    <li>把冰箱门关上</li>
+                </ol></td>
+        </tr>
+        <tr>
+            <th>ul</th>
+            <td>表示无序列表，没有任何局部属性，其效果由CSS控制。<br>
+            例：<ul>
+                    <li>apple</li>
+                    <li>pen</li>
+                    <li>applepen</li>
+                </ul></td>
+        </tr>
+        <tr>
+            <th>figure: </th>
+            <td>HTML5中给出的定义为：一个独立的内容单元，可带标题，通常作为一个整体被文档引用，把它删除也不会影响文档的意思。所以并不局限于传统意义上的图表或者图示。</td>
+        </tr>
+        <tr>
+            <th>figcaption: </th>
+            <td>figure元素可以包含一个figcaption元素，后者用于表示插图的标题。<br>
+            例：<figure><figcaption>插图标题</figcaption>这个标签很迷。。。</figure></td>
+        </tr>
+        </tbody>
+    </table>
+</article>
+<footer>
+    <span class="footer">Create by LZ</span>
+</footer>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-cmn">
+<head>
+    <meta charset="UTF-8">
+    <title>第三章</title>
+    <script defer src="../default.js" ></script>
+    <link rel="stylesheet" type="text/css" href="../default.css"/>
+</head>
+<body>
+<header><h1>第三章--基本概念</h1></header>
+<div class="article">
+    <ul>
+        <li><strong>严格模式：</strong>严格模式是为JavaScript定义了一套不同的解析与执行模式，在严格模式下ECMAScript3的一些不确定的行为将得到处理对某些不安全的行为也会抛出错误，要在脚本中启用严格模式，只要在脚本第一行添加“use strict”即可</li>
+        <li><strong>变量：</strong>ECMAScript的变量是松散类型的，可以用来储存任何数据，定义变量时用var操作符，后跟变量名<br>
+            例：var message = 100;<br>
+            未初始化的变量将自动赋予undefined</li>
+        <li><strong>数据类型：</strong>ECMAScript中有五种简单数据类型（基本数据类型），和一个复杂类型object：<br>
+            <ol>
+                <li><strong>undefined: </strong>未定义</li>
+                <li><strong>boolean: </strong>布尔值，有两个值，true/false</li>
+                <li><strong>string: </strong>字符串</li>
+                <li><strong>null: </strong>空指针</li>
+                <li><strong>number: </strong>数字，不分整形，非整形</li>
+                <li><strong>object: </strong>对象</li>
+            </ol>
+        </li>
+        <li><strong>typeof操作符：</strong>对一个值使用typeof将返回他的类型，undefined/boolean/null/number/string/object/function</li>
+        <li><strong>浮点数值: </strong>ECMAScript中会将整数自动转化为整形储存，而小数则以浮点数形式储存，所以在精度上会有所偏差，例如：0.1+0.2=0.3+4e-18。所以<strong>永远不要比较浮点数</strong></li>
+        <li><strong>NaN: </strong>非数值，任何数值除以非数值将返回NaN，<strong>NaN与任何数不等，包括其自身</strong>。<strong>isNaN（）</strong>函数可以确定一个值是否为NaN，它接受一个参数，如果该参数不能转换成数值返回true，否则返回false。</li>
+        <li><strong>字符串转换：</strong>toString方法：将变量转换成字符串形式，null和undefined没有这个方法；String方法：null和undefined分别返回“null”和“undefined”，其余和toString相同。</li>
+        <li><strong>对象：</strong>ECMAScript中的对象定义为<strong>一组数据和功能的集合</strong>,object的每个实例都有如下属性和方法：<br>
+            <ul>
+                <li><strong>constructor: </strong>保存着创建当前对象的构造函数的指针</li>
+                <li><strong>hasOwnProperty(propertyName): </strong>用于检查当前属性是否在对象实例中存在（而非原型）</li>
+                <li><strong>isPrototypeOf(object): </strong>用于检查传入的对象是否是当前对象的原型 </li>
+                <li><strong>propertyIsEnumerable(propertyName): </strong>用于检查属性是否能由for-in语句枚举 </li>
+                <li><strong>toString（）: </strong>返回字符串表示 </li>
+                <li><strong>valueOf: </strong>返回对象的值、字符串。数值或布尔类型表示 </li>
+            </ul>
+        </li>
+        <li><strong>操作符、if/else、while、do/while、for、switch与C/C++基本相同</strong></li>
+        <li><strong>For-in循环：</strong>用来枚举对象的所有可枚举属性，例：<br>
+            <pre><code>for(var propName in window) {
+    document.write(propName);
+}</code></pre>
+        </li>
+        <li><strong>Label，break，continue：</strong>可以在语句前加label来标记语句（例：label: statement）,标记的语句可以由break和continue来引用，其中，break会直接退出循环执行循环后的语句，而continue则退出当前循环，继续下一循环</li>
+        <li><strong>函数：</strong>ECMAScript中的函数可以接受任意参数，也何以返回任意值，并且不用提前写出声明原型，故ECMAScript中的函数不能重载（重名函数则直接覆）</li>
+        <li><strong>参数：</strong>ECMAScript中的函数并不介意传入的参数个数是否与声明相同，传入的参数都将储存在arguments对象中，可以以类似数组的形式（arguments[0]）来访问参数，函数的参数永远是值的传递，arguments中的值一直与参数同步，但arguments对象与传入参数确实占用不同的内存空间</li>
+    </ul>
+</div>
+<footer>
+    <span class="footer">Create by LZ 2016.7.2</span>
+</footer>
+</body>
+</html>

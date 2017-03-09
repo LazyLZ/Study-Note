@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-cmn">
+<head>
+    <meta charset="UTF-8">
+    <title>创建文档</title>
+    <script defer src="../default.js"></script>
+    <link rel="stylesheet" type="text/css" href="../default.css"/>
+</head>
+<body>
+<header>
+    <h1>创建文档--元数据元素</h1>
+</header>
+<article>
+    <p>文档元素和元数据元素是用来创建文档和说明其内容的元素。元数据元素应该全部放在head标签内部，用于提供文档信息，外联CSS、脚本或 图标等。</p>
+    <ul>
+        <li><strong>title: </strong>用于设置文档标题，必不可少。</li>
+        <li><strong>base: </strong>用于设置URL相对解析基准和打开页面中所有链接的方式。base需使用自闭和标签。<pre><code>&ltbase href="http://www.baidu.com/" target="_blank"/&gt</code></pre></li>
+        <li><strong>meta: </strong>用来说明文档，可用于指定名/值数据对、声明字符编码、改写http标头（可用于重载页面）
+            <pre><code>&ltmeta name="author" content="lz"/&gt
+&ltmeta charset="UTF-8"/&gt
+&ltmeta http-equiv="refresh" content="5"/&gt</code></pre></li>
+        <li><strong>style: </strong>用于定义内嵌样式表（link定义外部样式表。<br>
+            <pre><code>&ltstyle type="text/css"&gt
+    a{color: red; padding: 0.5em; display: inline-block;}
+&lt/style&gt</code></pre></li>
+        <li><strong>link: </strong>用于在HTML文档和外部资源之间建立联系，用于引入图标，样式表等。
+            <pre><code>&ltlink rel="stylesheet" type="text/css" href="styles.css"/&gt
+&ltlink rel="icon" type="image/x-icon" href="favicon.ico"/&gt</code></pre><br>
+            <small>注：type为文件的MIME类型和文件后缀名有关但不相同。</small>
+        </li>
+        <li><strong>script: </strong>在文档中嵌入脚本。src属性指定文件地址，defer/async指定加载模式，均为可选。
+            <p>例1：内部脚本</p>
+            <pre><code> &#60head&#62
+    &#60script&#62
+         function sayHi(){
+             alert(&quotHi&quot);
+         }
+          sayHi();
+    &#60/script&#62
+&#60/head&#62
+    </code></pre>
+            <p>例2：外部脚本</p>
+            <pre><code>&#60head&#62
+    &#60script src="test.js"&#62&#60/script&#62
+&#60/head&#62
+    </code></pre></li>
+        <li><strong>noscript: </strong>处理在浏览器关闭或不支持脚本的情况。<br>
+            <pre><code>&#60noscript&#62
+    &lth1&gtJavaScript is requaired&lt/h1&gt
+&#60/script&#62
+    </code></pre>
+        </li>
+    </ul>
+</article>
+<footer>
+    <span class="footer">Create by LZ</span>
+</footer>
+</body>
+</html>

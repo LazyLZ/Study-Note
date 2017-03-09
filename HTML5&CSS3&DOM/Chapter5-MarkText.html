@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-cmn">
+<head>
+    <meta charset="UTF-8">
+    <title>标记文字</title>
+    <script defer src="../default.js"></script>
+    <link rel="stylesheet" type="text/css" href="../default.css"/>
+</head>
+<body>
+<header>
+    <h1>标记文字--标明文字含义</h1>
+</header>
+<article>
+    <p>HTML5规范明确指出：使用元素应该完全从元素的语义出发。但是有些元素传统上与其联系在一起的样式也是语义的一部分。所以应该尽量使用符合需求的专用元素，避开呈现性元素不管选择了何种元素，都要在文档中贯彻始终。</p>
+    <table class="element-list">
+        <thead><tr><th>标签</th><th>说明</th></tr></thead>
+        <tbody>
+        <tr>
+            <th>a:</th>
+            <td>添加超链接，可以使指向外部的超链接，也可以是指向内部的，一般必须有href属性，可选target属性,用于改变打开连接的方式，base标签可以改变连接的基准。<br>
+                <table>
+                    <tr>
+                        <td><a href="https://www.baidu.com">这是一个指向外部的超链接</a></td>
+                        <td><a href="#bottom">这是一个指向内部的超链接</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>&lta href="https://www.baidu.com"&gt这是一个指向外部的超链接&lt/a&gt</code>
+                        </td>
+                        <td>
+                            <code>&lta href="#header"&gt这是一个指向内部的超链接&lt/a&gt</code>
+                        </td>
+                    </tr>
+                </table>
+                <p>target属性可以指定浏览器如何打开连接：</p>
+                <ul>
+                    <li>_blank: 在新窗口或标签页中打开</li>
+                    <li>_parent: 在父窗框组中打开中打开</li>
+                    <li>_self: 默认行为，在当前窗口打开</li>
+                    <li>_top: 在顶层窗口打开</li>
+                    <li>&ltframe&gt: 在指定窗口打开</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>em:</th>
+            <td>加以强调，默认斜体。<br>例：<em>em标签表示强调，加重语气</em></td>
+        </tr>
+        <tr>
+            <th>i:</th>
+            <td>表示外文词语或科技词语或者想法，不推荐使用。<br>例：<i>i标签用来表示文字与周围内容有本质区别，定义比较模糊</i></td>
+        </tr>
+        <tr>
+            <th>s:</th>
+            <td>表示不准确或不正确，默认加一条删除线。<br>例：<s>s标签表示该标签内内容不再准确</s></td>
+        </tr>
+        <tr>
+            <th>strong:</th>
+            <td>表示重要的文字，默认加粗。<br>例：<strong>strong标签强调该标签内的文字很重要</strong></td>
+        </tr>
+        <tr>
+            <th>small:</th>
+            <td>表示小号字体，常用于免责声明等，当周围字体为最小号时small标签没有任何样式。<br>例：
+                <small>small标签表示小号字体</small>
+            </td>
+        </tr>
+        <tr>
+            <th>sub & sup:</th>
+            <td>表示上标和下标，有些语言需要用到上下标，数学中也很常用。<br>例：x<sub>1</sub> = 10<sup>th</sup></td>
+        </tr>
+        <tr>
+            <th>br & wbr:</th>
+            <td>br内容中用于换行，<strong>切勿将br用在创建段落或别的内容组</strong>。wbr用于指示安全换行位置，常用于较长单词。<br>
+                例：换<br>行 sdlkfjhg
+                <wbr>
+                dfsjghsdlkfjgsdhfgk
+                <wbr>
+                ldkjfhldsfgkjskhlg
+                <wbr>
+            </td>
+        </tr>
+        <tr>
+            <th>code:</th>
+            <td>表示代码部分。<br>例：<code>function(){alert("Hello, world!")}</code></td>
+        </tr>
+        <tr>
+            <th>samp:</th>
+            <td>表示计算机输出。<br>例：<samp>Hello, world!</samp></td>
+        </tr>
+        <tr>
+            <th>kbd:</th>
+            <td>表示用户输入。<br>例：<kbd>I love programming!</kbd></td>
+        </tr>
+        <tr>
+            <th>abbr:</th>
+            <td>表示缩写，其title属性表示该缩写代表的完整词语。<br>
+                例：<abbr title="Acquired Immune Deficiency Syndrome">AIDS</abbr>
+                <code>&ltabbr title="Acquired Immune Deficiency Syndrome"&gtAIDS&lt/abbr&gt</code></td>
+        </tr>
+        <tr>
+            <th>q:</th>
+            <td>表示引用自他处的内容，cite属性可以用来指定来源文章的URL。<br>例：<q cite="http://baike.baidu.com/view/15181.htm">苹果公司（Apple Inc.
+                ）是美国的一家高科技公司。</q></td>
+        </tr>
+        <tr>
+            <th>cite:</th>
+            <td>用于引用作品标题，HTML5中不能再用于引用人名。<br>例：<cite>JavaScript: 从入门到放弃</cite></td>
+        </tr>
+        <tr>
+            <th>ruby, rt和rp:</th>
+            <td>
+                ruby元素与rt和rp元素搭配使用，用来包含一段注音文字。rt元素用来标记注音符号，rp则用来标记供不支持注音功能的浏览器显示注音符号前后的括号。（实测主流浏览器现已全部支持注音功能，不需括号.2017.2.9）<br>
+                例：
+                <ruby>魑
+                    <rt>chi</rt>
+                </ruby>
+                <ruby>魅
+                    <rt>mei</rt>
+                </ruby>
+                <ruby>魍
+                    <rt>wang</rt>
+                </ruby>
+                <ruby>魉
+                    <rt>liang</rt>
+                </ruby>
+            </td>
+        </tr>
+        <tr>
+            <th>bdo</th>
+            <td>用于指明文字方向，需要与dir属性一起使用。<br>例：<bdo dir="rtl">bro明确指定了文字方向</bdo></td>
+        </tr>
+        <tr>
+            <th>span:</th>
+            <td>没有含义，用于把一些全局属性应用到内容上，对应div。<br>例：<span>span元素并没有卵用</span></td>
+        </tr>
+        <tr>
+            <th>mark:</th>
+            <td>用来表示与某段上下文相关而被突出显示的一段文字<br>例：
+                <mark>突出显示</mark>
+            </td>
+        </tr>
+        <tr>
+            <th>ins:</th>
+            <td>表示文档中添加的内容。<br>例：
+                <ins>添加的内容</ins>
+            </td>
+        </tr>
+        <tr>
+            <th>del:</th>
+            <td>表示删除的内容。<br>例：
+                <del>删除的内容</del>
+            </td>
+        </tr>
+        <tr>
+            <th>time:</th>
+            <td>表示时间和日期，如果布尔属性pubdate存在，那么time元素表示的是整个HTML文档或离该元素最近的article元素的发布日期。datetime属性以RFC3339规定的格式指定日期或时间<br>例：
+                <time datetime="15:00">3 o'clock</time>
+                <code>&lttime datetime="15:00"&gt3 o'clock&lt/time&gt</code><br>
+                例：
+                <time datetime="1984-12-7">December 7th</time>
+                <code>&lttime datetime="1984-12-7"&gtDecember 7th&lt/time&gt</code></td>
+        </tr>
+        </tbody>
+    </table>
+</article>
+<footer id="bottom">
+    <span class="footer">Create by LZ</span>
+</footer>
+</body>
+</html>

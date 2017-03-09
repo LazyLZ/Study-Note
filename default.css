@@ -1,0 +1,163 @@
+body {
+    text-align: center;
+    margin: 0 0;
+    background: #252525;
+    color: #cdcdcd;
+}
+
+a {
+    color: #009deb;
+}
+
+iframe.web-page{
+    background: white;
+}
+
+h3,h1{
+    color: white;
+}
+
+input,textarea,select{
+    background: #313131;
+    color: #ebebeb;
+    border: 2px solid #989898;
+}
+
+input:disabled,textarea:disabled{
+    border: 0;
+    background: #464646;
+}
+
+input:focus,textarea:focus{
+    background: #464646;
+}
+
+
+button{
+    background: #4b4b4b;
+    color: #ebebeb;
+    border: 2px solid #989898;
+}
+
+tr td{
+    padding: 0.4em;
+}
+
+tr th{
+    padding: 0.4em;
+}
+
+strong{
+    color: white;
+}
+header>*{
+    display: block;
+    border-top: 3px solid #8c8d8a;
+    border-bottom: 3px solid #8c8d8a;
+    color: #ebebeb;
+    padding: 0.5em;
+    min-width: 20em;
+    margin-bottom: 10px;
+
+}
+
+li {
+    text-align: left;
+    margin: 0.7em;
+}
+
+article {
+    padding: 1em 1.5em 1em 1.5em;
+    display: inline-block;
+    width: 65%;
+    min-width: 25em;
+    text-align: left;
+    border: 3px solid #8c8d8a;
+}
+
+p {
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 0.8em;
+}
+
+pre {
+    text-align: left;
+    border: 1px solid #8c8d8a;
+    display: inline-block;
+    padding: 1em;
+}
+footer{
+    height: 3.6em;
+    position: relative;
+}
+.footer{
+    background: #353535;
+    padding-top: 0.6em;
+    padding-bottom: 0.4em;
+    color: #8e8d8f;
+    position: fixed;
+    width: 100%;
+    display: block;
+    text-align: center;
+    bottom: 0;
+}
+
+.list {
+    display: inline-table;
+    text-align: left;
+    width: 40em;
+}
+
+.caption {
+    background: rgb(114, 114, 114) padding-box;
+    line-height: 2em;
+    height: 2em;
+    text-align: center;
+    width: 100%;
+    border: 2px solid rgba(0, 0, 0, 0);
+    float: left;
+    box-sizing: border-box;
+    color: #ebebeb;
+}
+
+.chapter {
+    line-height: 4em;
+    height: 4em;
+    text-align: center;
+    width: 33.33%;
+    border: 2px solid rgba(0, 0, 0, 0);
+    background: rgb(85, 85, 85) padding-box;
+    float: left;
+    box-sizing: border-box;
+}
+
+.element-list tbody tr th{
+    text-align: right;
+    font-weight: bold;
+    color: #ebebeb;
+    vertical-align: top;
+}
+
+.element-list{
+    width: 100%;
+}
+.element-list caption{
+    font-size: large;
+    border-bottom: 1px solid #ebebeb;
+    color: #ebebeb;
+    padding: 0.5em;
+    margin-bottom: 5px;
+}
+.element-list thead tr *{
+    text-align: center;
+    color: #ebebeb;
+    background: rgb(85, 85, 85) padding-box;
+    padding: 0.3em;
+}
+/*测试*/
+
+.now {
+    background: rgba(255, 0, 0, 0.50);
+}
+
